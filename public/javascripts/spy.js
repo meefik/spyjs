@@ -1,8 +1,10 @@
 var timeout = 0;
 var initTime = new Date().getTime();
-var userId = null;
-var pageId = Math.uuid();
-var uri = document.URL;
+var page = null;
+var arr_keypress = [];
+var arr_click = [];
+var arr_mouseover = [];
+var arr_mousemove = [];
 
 function init() {
     window.addEventListener("click", function(e) { save(e); });
@@ -10,18 +12,19 @@ function init() {
     window.addEventListener("mouseover", function(e) { save(e); });
     window.addEventListener("keypress", function(e) { save(e); });
 
-    userId = getCookie("userId");
+    var userId = getCookie("userId");
     if (userId == null) {
         userId = Math.uuid();
         document.cookie = "userId="+userId;
     }
 
-    var data = {
-        "pageid": pageId, "userid": userId, "uri": uri,
+    page = {
+        "pageid": Math.uuid(), "userid": userId, "uri": document.URL,
         "width": window.innerWidth, "height": window.innerHeight,
         "useragent": navigator.userAgent, "title": document.title
     }
-    console.log(data);
+
+    setInterval(send, 1000);
 }
 
 function save(event) {
@@ -37,20 +40,24 @@ function save(event) {
 
     switch (event.type) {
         case 'keypress':
-            var data = {"pageId": pageId, "time": time, "event": event.type, "key": event.keyCode}
-            console.log(data);
-            break;
-        case 'mousemove':
-            var data = {"pageId": pageId, "time": time, "event": event.type, "x": event.clientX, "y": event.clientY}
-            console.log(data);
-            break;
-        case 'mouseover':
-            var data = {"pageId": pageId, "time": time, "event": event.type, "tag": target.tagName}
-            console.log(data);
+            var data = {"pageid": page.pageid, "time": time, "key": event.keyCode};
+            //console.log(data);
+            arr_keypress.push(data);
             break;
         case 'click':
-            var data = {"pageId": pageId, "time": time, "event": event.type, "tag": target.tagName}
-            console.log(data);
+            var data = {"pageid": page.pageid, "time": time, "tag": target.id};
+            //console.log(data);
+            arr_click.push(data);
+            break;
+        case 'mouseover':
+            var data = {"pageid": page.pageid, "time": time, "tag": target.id};
+            //console.log(data);
+            arr_mouseover.push(data);
+            break;
+        case 'mousemove':
+            var data = {"pageid": page.pageid, "time": time, "x": event.clientX, "y": event.clientY};
+            //console.log(data);
+            arr_mousemove.push(data);
             break;
         default:
             console.log(time+': '+event.type);
@@ -63,4 +70,24 @@ function getCookie(name) {
         "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
     ));
     return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function send(){
+
+    var data = {
+        "page": page, "keypress": arr_keypress, "click": arr_click,
+        "mouseover": arr_mouseover, "mousemove": arr_mousemove
+    };
+
+    $.ajax({
+        type: "POST",
+        url: "api/report",
+        data: data,
+        dataType: "json"
+    });
+
+    arr_keypress = [];
+    arr_click = [];
+    arr_mouseover = [];
+    arr_mousemove = [];
 }
