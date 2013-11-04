@@ -5,7 +5,6 @@ function SpyJS() {
     var page = null;
     var arr_keypress = [];
     var arr_click = [];
-    var arr_mouseover = [];
     var arr_mousemove = [];
 
     init();
@@ -45,7 +44,7 @@ function SpyJS() {
 
         switch (event.type) {
             case 'keypress':
-                var data = {"pageid": page.pageid, "time": time, "key": event.keyCode};
+                var data = {"pageid": page.pageid, "time": time, "keycode": event.keyCode};
                 console.log(data);
                 arr_keypress.push(data);
                 break;
@@ -77,7 +76,7 @@ function SpyJS() {
 
         var data = {
             "page": page, "keypress": arr_keypress, "click": arr_click,
-            "mouseover": arr_mouseover, "mousemove": arr_mousemove
+            "mousemove": arr_mousemove
         };
 
         $.ajax({
@@ -89,7 +88,6 @@ function SpyJS() {
 
         arr_keypress = [];
         arr_click = [];
-        arr_mouseover = [];
         arr_mousemove = [];
 
     }
