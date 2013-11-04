@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://www.broofa.com/Tools/Math.uuid.js"></script>
+    <script src='javascripts/spy.js'></script>
+  </head>
+  <body onload="init();">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+<div style="padding:10px; margin:10px; border: 2px solid blue" id="outer">
+ <p style="border: 1px solid green">
+   Обработчики mouseover/mouseout стоят на синем родителе.
+ </p>
+ <blockquote style="border: 1px solid red">
+   ..Но срабатывают и при любых переходах по его потомкам!
+  </blockquote>
+  <a href="#">link1</a> <a href="#">link2</a>
+  <input type="text"/>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Игра-эксперимент</title>
+    <script>
+
+        var n = 4;
+        var m = 4;
+        var time = 0;
+        var moves = 0;
+
+        var getN = parseInt(getURLParameter('n'));
+        var getM = parseInt(getURLParameter('m'));
+        if (!isNaN(getN)) {
+            n = getN;
+        }
+        if (!isNaN(getM)) {
+            m = getM;
+        }
+
+        var z = n*m;
+
+        function init() {
+
+            var arr = new Array(z);
+            arr[z-1] = '';
+            for (var i = 1; i < arr.length; i++) {
+                do {
+                    var next = Math.floor(Math.random()*(z-1) + 1);
+                } while (arr.indexOf(next) != -1);
+                arr[i-1] = next;
+            }
+
+            var xhtml = '';
+            var k = 0;
+            for (var i = 1; i <= m; i++) {
+                xhtml += '<tr align="center">';
+                for (var j = 1; j <= n; j++) {
+                    k++;
+                    xhtml += '<td bgcolor="#F0F8FF" width="80px" height="80px" id="td'+k+'" onclick="check(this)">'+arr[k-1]+'</td>';
+                }
+                xhtml += '</tr>';
+            }
+            document.getElementById('box').innerHTML = xhtml;
+            document.getElementById('td'+z).style.background = '#FAEBD7';
+
+            setInterval(function(){
+                time++;
+                document.getElementById('time').innerHTML = new Date(time*1000).toUTCString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+            }, 1000);
+        }
+
+        function check(self) {
+
+            function swap(arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (document.getElementById('td'+arr[i]).innerHTML == '') {
+                        var t = self.innerHTML;
+                        self.innerHTML = document.getElementById('td'+arr[i]).innerHTML;
+                        document.getElementById('td'+arr[i]).innerHTML = t;
+                        self.style.background = '#FAEBD7';
+                        document.getElementById('td'+arr[i]).style.background = '#F0F8FF';
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            var id = parseInt(self.id.replace('td',''));
+            var arr = [];
+
+            if (id % n != 0) {
+                arr.push(id+1);
+            }
+            if ((id-1) % n != 0) {
+                arr.push(id-1);
+            }
+            if (id-n > 0) {
+                arr.push(id-n);
+            }
+            if (id+n <= z) {
+                arr.push(id+n);
+            }
+
+            if (swap(arr)) {
+                moves++;
+                document.getElementById('moves').innerHTML = moves+'';
+            }
+
+        }
+
+        function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
+        }
+
+    </script>
+
+</head>
+<body onload="init()">
+
+<table id="box" align="center" bgcolor="#FAEBD7" border="5" bordercolor="#DEB887">
+</table>
+
+<br/>
+
+<table border="0" align="center">
+    <tr align="center">
+        <td width="200px" style="font-weight: bold; font-size: 18px;">Время: <span id="time">-</span></td>
+        <td width="200px" style="font-weight: bold; font-size: 18px;">Ходы: <span id="moves">-</span></td>
+    </tr>
+</table>
+
+</body>
+</html>
