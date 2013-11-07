@@ -13,6 +13,8 @@
         var arr = splitLine(text, 80);
         var fails = 0;
         var symbols = 0;
+        var time = 0;
+        var minutes = 0;
 
         function init() {
 
@@ -56,9 +58,15 @@
         }
 
         function drawStats() {
+            time++;
+            if (time % 60) {
+                minutes++;
+            }
+            var timeStr = new Date(time*1000).toUTCString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
             var percent = 0;
-            if (symbols > 0) percent = (fails * 100 / symbols);
-            var xhtml = 'Набрано: <b>'+symbols+'</b> символов / Ошибок: <b>'+fails+'</b> ('+percent+' %)';
+            if (symbols > 0) percent = Math.round(fails * 100 / symbols);
+            var syminmin = Math.round((symbols * 60) / minutes);
+            var xhtml = 'Набрано: <b>'+symbols+'</b> симв. / Ошибок: <b>'+fails+'</b> ('+percent+' %) / Время: <b>'+timeStr+'</b> / Симв./мин.: <b>'+syminmin+'</b>';
             $('#stats').html(xhtml);
         }
 
