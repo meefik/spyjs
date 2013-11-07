@@ -8,43 +8,35 @@
     <!--<script src='javascripts/spy.js'></script>-->
     <script>
 
-        var text = 'Linux, также Линукс - общее название Unix-подобных операционных систем, основанных на одноимённом ядре. Ядро Linux создаётся и распространяется в соответствии с моделью разработки свободного и открытого программного обеспечения. Поэтому общее название не подразумевает какой-либо единой "официальной" комплектации Linux; они распространяются в основном бесплатно в виде различных готовых дистрибутивов, имеющих свой набор прикладных программ и уже настроенных под конкретные нужды пользователя.';
-
+        //var text = 'Linux, также Линукс - общее название Unix-подобных операционных систем, основанных на одноимённом ядре. Ядро Linux создаётся и распространяется в соответствии с моделью разработки свободного и открытого программного обеспечения. Поэтому общее название не подразумевает какой-либо единой "официальной" комплектации Linux; они распространяются в основном бесплатно в виде различных готовых дистрибутивов, имеющих свой набор прикладных программ и уже настроенных под конкретные нужды пользователя.';
+        var text = 'привет.';
         var arr = splitLine(text, 80);
         var fails = 0;
         var symbols = 0;
         var time = 0;
         var minutes = 0;
+        var timer;
 
         function init() {
 
             window.addEventListener("keypress", function(e) { 
                 e = e || window.event;
                 var intext = $('#intext');
-                var line1 = $('#line1');
-                var inlen = intext.val().length;
-                if (!arr[0] || inlen >= arr[0].length-1) {
-                    intext.val('');
-                    event.preventDefault();
-                    arr.splice(0,1);
-                    symbols++;
-                    drawText();
-                    return false;
-                }
+                var inlen = $('#intext').val().length;
                 var key = String.fromCharCode(e.keyCode || e.charCode);
-                console.log(arr[0][inlen] + ' ' + key);
-                if (arr[0][inlen] === key) {
+                //console.log(arr[0][inlen] + ' ' + key);
+                if (!arr[0] || arr[0][inlen] === key) {
                     symbols++;
-                    line1.html('<span class="yellow">'+arr[0].substring(0, inlen+1)+'</span>'+arr[0].substring(inlen+1, arr[0].length));
+                    drawLine();
                 } else {
                     fails++;
                     event.preventDefault();
                     return false;
                 }
-            });
-            window.addEventListener("keydown", function(e) { 
-                e = e || window.event;
-                if (e.keyCode === 8 || e.keyCode === 46) {
+                if (!arr[0] || inlen+1 >= arr[0].length) {
+                    intext.val('');
+                    arr.splice(0,1);
+                    drawText();
                     event.preventDefault();
                     return false;
                 }
@@ -53,20 +45,34 @@
             drawText();
             drawStats();
 
-            setInterval(drawStats, 1000);
+            timer = setInterval(drawStats, 1000);
 
         }
 
+        function drawLine() {
+            if (!arr[0]) return;
+            var inlen = $('#intext').val().length+1;
+            $('#line1').html('<span class="yellow">'+arr[0].substring(0, inlen)+'</span>'+arr[0].substring(inlen, arr[0].length));
+        }
+
         function drawStats() {
+            if (symbols >= text.length) {
+                clearInterval(timer);
+                symbols = text.length;
+            }
             time++;
             if (time % 60) {
                 minutes++;
             }
             var timeStr = new Date(time*1000).toUTCString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-            var percent = 0;
-            if (symbols > 0) percent = Math.round(fails * 100 / symbols);
+            var epercent = 0;
+            var apercent = Math.round(symbols * 100 / text.length);
+            if (symbols > 0) epercent = Math.round(fails * 100 / symbols);
             var syminmin = Math.round((symbols * 60) / minutes);
-            var xhtml = 'Набрано: <b>'+symbols+'</b> симв. / Ошибок: <b>'+fails+'</b> ('+percent+' %) / Время: <b>'+timeStr+'</b> / Симв./мин.: <b>'+syminmin+'</b>';
+            var xhtml = '<span class="item">Набрано: <b>'+symbols+'</b> симв. ('+apercent+' %)</span>';
+            xhtml += '<span class="item">Ошибок: <b>'+fails+'</b> ('+epercent+' %)</span>';
+            xhtml += '<span class="item">Время: <b>'+timeStr+'</b> </span>';
+            xhtml += '<span class="item">Симв./мин.: <b>'+syminmin+'</b></span>';
             $('#stats').html(xhtml);
         }
 
@@ -134,6 +140,9 @@ function splitLine(st,n) {
         .yellow {
             background-color: yellow;
         }
+        .item {
+            padding-right: 3em;
+        }
         #stats {
             font-family: sans-serif;
             font-size: 14px;
@@ -149,7 +158,7 @@ function splitLine(st,n) {
 <span id="stats" style="display: inline;"></span>
 
 <form id="textform" action="">
-<input type="text" id="intext" value="" lang="en" autocomplete="off" spellcheck="false" formnovalidate="formnovalidate" style="display: block;">
+<input type="text" id="intext" value="" lang="en" autocomplete="off" spellcheck="false" formnovalidate="formnovalidate" style="display: block;" autofocus>
 </form>
 
 <div id="text" style="display: block;"></div>
