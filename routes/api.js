@@ -25,10 +25,10 @@ exports.add = function(req, res){
             [req.body.page.pageid,req.body.page.userid,req.body.page.uri,req.body.page.width,req.body.page.height,
                 req.body.page.title,req.body.page.useragent]);
     }
-    if (req.body.keydown) {
-        for (var i = 0; i < req.body.keydown.length; i++) {
-            query("INSERT INTO keydown (pageid, time, keycode) VALUES (?,?,?)",
-                [req.body.keydown[i].pageid,req.body.keydown[i].time,req.body.keydown[i].keycode]);
+    if (req.body.keypress) {
+        for (var i = 0; i < req.body.keypress.length; i++) {
+            query("INSERT INTO keypress (pageid, time, keycode) VALUES (?,?,?)",
+                [req.body.keypress[i].pageid,req.body.keypress[i].time,req.body.keypress[i].keycode]);
         }
     }
     if (req.body.click) {

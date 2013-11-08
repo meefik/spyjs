@@ -32,6 +32,7 @@
                 } else {
                     fails++;
                     event.preventDefault();
+                    event.cancelBubble = true;
                     return false;
                 }
                 if (linelength >= arr[0].length) {
@@ -41,6 +42,7 @@
                     arr.splice(0,1);
                     drawText();
                     event.preventDefault();
+                    event.cancelBubble = true;
                     return false;
                 }
             });
