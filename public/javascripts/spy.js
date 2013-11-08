@@ -1,3 +1,15 @@
+/**
+ * SpyJS
+ * @author Anton Skshidlevksy <anton@cde.ifmo.ru>
+ * @license GPL v3
+ *
+ * Usage:
+ * $(document).ready(function(){
+ *     var spy = new SpyJS();
+ *     spy.start();
+ * });
+ */
+
 function SpyJS() {
 
     var timeout = 0;
@@ -6,32 +18,41 @@ function SpyJS() {
     var arr_keydown = [];
     var arr_click = [];
     var arr_mousemove = [];
+    var timer = null;
 
-    init();
+    var userId = getCookie("userId");
+    if (userId == null) {
+        userId = Math.uuid();
+        document.cookie = "userId="+userId;
+    }
 
-    function init() {
+    page = {
+        "pageid": Math.uuid(), "userid": userId, "uri": document.URL,
+        "width": window.innerWidth, "height": window.innerHeight,
+        "useragent": navigator.userAgent, "title": document.title
+    }
 
-        window.addEventListener("keydown", function(e) { save(e); });
-        window.addEventListener("click", function(e) { save(e); });
-        window.addEventListener("mousemove", function(e) { save(e); });
+    SpyJS.prototype.start = function () {
 
-        var userId = getCookie("userId");
-        if (userId == null) {
-            userId = Math.uuid();
-            document.cookie = "userId="+userId;
-        }
+        window.addEventListener("keydown", this.save);
+        window.addEventListener("click", this.save);
+        window.addEventListener("mousemove", this.save);
 
-        page = {
-            "pageid": Math.uuid(), "userid": userId, "uri": document.URL,
-            "width": window.innerWidth, "height": window.innerHeight,
-            "useragent": navigator.userAgent, "title": document.title
-        }
-
-        setInterval(send, 1000);
+        timer = setInterval(this.send, 1000);
 
     }
 
-    function save(event) {
+    SpyJS.prototype.stop = function () {
+
+        window.removeEventListener("keydown", this.save);
+        window.removeEventListener("click", this.save);
+        window.removeEventListener("mousemove", this.save);
+
+        clearInterval(timer);
+
+    }
+
+    SpyJS.prototype.save = function (event) {
 
         if(new Date().getTime() < timeout) {
             return;
@@ -65,14 +86,7 @@ function SpyJS() {
 
     }
 
-    function getCookie(name) {
-        var matches = document.cookie.match(new RegExp(
-            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-        ));
-        return matches ? decodeURIComponent(matches[1]) : undefined;
-    }
-
-    function send(){
+    SpyJS.prototype.send = function () {
 
         var data = {
             "page": page, "keydown": arr_keydown, "click": arr_click,
@@ -92,8 +106,15 @@ function SpyJS() {
 
     }
 
+    SpyJS.prototype.info = page;
+
+    function getCookie(name) {
+        var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
 }
 
-$(document).ready(function(){
-    var spy = new SpyJS();
-});
+

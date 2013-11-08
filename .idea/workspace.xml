@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed3e5178-c1af-46c2-80f7-9a7f63e72f3a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.js" afterPath="$PROJECT_DIR$/routes/api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/puzzle.html" afterPath="$PROJECT_DIR$/public/puzzle.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/spy.js" afterPath="$PROJECT_DIR$/public/javascripts/spy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/typing.html" afterPath="$PROJECT_DIR$/public/typing.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spyjs.iws" />
@@ -39,21 +41,21 @@
       <file leaf-file-name="puzzle.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/puzzle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="158" selection-end="318" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="2175">
+            <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="-9.375" vertical-offset="45" max-vertical-offset="2250">
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1383910388606" expanded="true" signature="1246:1281" placeholder="..." />
-                <marker date="1383910388606" expanded="true" signature="1262:1281" placeholder="..." />
+                <marker date="1383927854936" expanded="true" signature="1246:1281" placeholder="..." />
+                <marker date="1383927854936" expanded="true" signature="1262:1281" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spy.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="spy.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/spy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="28" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.36792454" vertical-offset="525" max-vertical-offset="1575">
+            <state line="109" column="0" selection-start="2914" selection-end="2914" vertical-scroll-proportion="0.0" vertical-offset="1310" max-vertical-offset="1890">
               <folding />
             </state>
           </provider>
@@ -62,7 +64,7 @@
       <file leaf-file-name="typing.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/typing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="44" selection-start="1103" selection-end="1103" vertical-scroll-proportion="16.25" vertical-offset="720" max-vertical-offset="2700">
+            <state line="118" column="0" selection-start="4577" selection-end="4577" vertical-scroll-proportion="-11.875" vertical-offset="1485" max-vertical-offset="2775">
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -81,11 +83,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.ejs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="55" selection-start="270" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="270">
-              <folding />
+            <state line="11" column="9" selection-start="480" selection-end="480" vertical-scroll-proportion="0.2967626" vertical-offset="0" max-vertical-offset="556">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,7 +97,7 @@
       <file leaf-file-name="report.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/report.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="11" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="780">
+            <state line="34" column="11" selection-start="953" selection-end="953" vertical-scroll-proportion="-11.916667" vertical-offset="224" max-vertical-offset="780">
               <folding />
             </state>
           </provider>
@@ -102,7 +106,7 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="2" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
+            <state line="7" column="2" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -153,12 +157,12 @@
         <option value="$PROJECT_DIR$/public/index.htm" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/public/puzzle.html" />
-        <option value="$PROJECT_DIR$/public/typing.html" />
         <option value="$PROJECT_DIR$/routes/api.js" />
+        <option value="$PROJECT_DIR$/public/typing.html" />
+        <option value="$PROJECT_DIR$/public/puzzle.html" />
         <option value="$PROJECT_DIR$/public/javascripts/spy.js" />
+        <option value="$PROJECT_DIR$/views/index.ejs" />
       </list>
     </option>
   </component>
@@ -409,7 +413,11 @@
       <created>1383916834489</created>
       <updated>1383916834489</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update">
+      <created>1383917006508</created>
+      <updated>1383917006508</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -469,7 +477,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -496,60 +506,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="2" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/report.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="11" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="55" selection-start="270" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="20" selection-start="129" selection-end="129" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/puzzle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="158" selection-end="318" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="2175">
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1383910388606" expanded="true" signature="1246:1281" placeholder="..." />
-            <marker date="1383910388606" expanded="true" signature="1262:1281" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/typing.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="44" selection-start="1103" selection-end="1103" vertical-scroll-proportion="16.25" vertical-offset="720" max-vertical-offset="2700">
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/report.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
@@ -561,10 +520,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/report.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/puzzle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="-9.375" vertical-offset="45" max-vertical-offset="2250">
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1383927854936" expanded="true" signature="1246:1281" placeholder="..." />
+            <marker date="1383927854936" expanded="true" signature="1262:1281" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/typing.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="0" selection-start="4577" selection-end="4577" vertical-scroll-proportion="-11.875" vertical-offset="1485" max-vertical-offset="2775">
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/report.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="11" selection-start="953" selection-end="953" vertical-scroll-proportion="-11.916667" vertical-offset="224" max-vertical-offset="780">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="2" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="195">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/spy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="28" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.36792454" vertical-offset="525" max-vertical-offset="1575">
+        <state line="109" column="0" selection-start="2914" selection-end="2914" vertical-scroll-proportion="0.0" vertical-offset="1310" max-vertical-offset="1890">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="9" selection-start="480" selection-end="480" vertical-scroll-proportion="0.2967626" vertical-offset="0" max-vertical-offset="556">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

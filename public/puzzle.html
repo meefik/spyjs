@@ -107,6 +107,11 @@
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
         }
 
+        $(document).ready(function(){
+            var spy = new SpyJS();
+            spy.start();
+        });
+
     </script>
 
     <style type="text/css">

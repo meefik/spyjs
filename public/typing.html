@@ -95,22 +95,27 @@
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
         }
 
-function splitLine(st,n) {
-    var b = '';
-    var s = st;
-    var arr = [];
-    while (s.length > n) {
-        var c = s.substring(0,n);
-        var d = c.lastIndexOf(' ');
-        var e = c.lastIndexOf('\n');
-        if (e != -1) d = e;
-        if (d == -1) d = n;
-        arr.push(c.substring(0,d+1));
-        s = s.substring(d+1);
-    }
-    arr.push(s);
-    return arr;
-}
+        function splitLine(st,n) {
+            var b = '';
+            var s = st;
+            var arr = [];
+            while (s.length > n) {
+                var c = s.substring(0,n);
+                var d = c.lastIndexOf(' ');
+                var e = c.lastIndexOf('\n');
+                if (e != -1) d = e;
+                if (d == -1) d = n;
+                arr.push(c.substring(0,d+1));
+                s = s.substring(d+1);
+            }
+            arr.push(s);
+            return arr;
+        }
+
+        $(document).ready(function(){
+            var spy = new SpyJS();
+            spy.start();
+        });
 
     </script>
 
