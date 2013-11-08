@@ -3,7 +3,7 @@ function SpyJS() {
     var timeout = 0;
     var initTime = new Date().getTime();
     var page = null;
-    var arr_keypress = [];
+    var arr_keydown = [];
     var arr_click = [];
     var arr_mousemove = [];
 
@@ -11,7 +11,7 @@ function SpyJS() {
 
     function init() {
 
-        window.addEventListener("keypress", function(e) { save(e); });
+        window.addEventListener("keydown", function(e) { save(e); });
         window.addEventListener("click", function(e) { save(e); });
         window.addEventListener("mousemove", function(e) { save(e); });
 
@@ -43,10 +43,10 @@ function SpyJS() {
         var time = new Date().getTime() - initTime;
 
         switch (event.type) {
-            case 'keypress':
+            case 'keydown':
                 var data = {"pageid": page.pageid, "time": time, "keycode": event.keyCode};
                 console.log(data);
-                arr_keypress.push(data);
+                arr_keydown.push(data);
                 break;
             case 'click':
                 var data = {"pageid": page.pageid, "time": time, "tag": target.id, "x": event.clientX, "y": event.clientY};
@@ -75,7 +75,7 @@ function SpyJS() {
     function send(){
 
         var data = {
-            "page": page, "keypress": arr_keypress, "click": arr_click,
+            "page": page, "keydown": arr_keydown, "click": arr_click,
             "mousemove": arr_mousemove
         };
 
@@ -86,7 +86,7 @@ function SpyJS() {
             dataType: "json"
         });
 
-        arr_keypress = [];
+        arr_keydown = [];
         arr_click = [];
         arr_mousemove = [];
 
