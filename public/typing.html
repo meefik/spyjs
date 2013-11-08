@@ -56,9 +56,8 @@
         }
 
         function drawStats() {
-            if (symbols >= text.length) {
+            if (!arr[0]) {
                 clearInterval(timer);
-                symbols = text.length;
             }
             time++;
             if (time % 60) {
