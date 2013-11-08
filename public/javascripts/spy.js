@@ -106,6 +106,10 @@ function SpyJS() {
 
     }
 
+    SpyJS.prototype.remove = function () {
+        deleteCookie("userId");
+    }
+
     SpyJS.prototype.info = page;
 
     function getCookie(name) {
@@ -114,6 +118,10 @@ function SpyJS() {
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined;
     }
+
+    function deleteCookie(name) {
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    };
 
 }
 

@@ -6,9 +6,10 @@
     <script src="javascripts/Math.uuid.js"></script>
     <script src='javascripts/spy.js'></script>
     <script>
+      var spy = null;
       $(document).ready(function(){
-        var spy = new SpyJS();
-        $('#userid').html('Ваш уникальный идентификатор: <b>'+spy.info.userid+'</b>');
+        spy = new SpyJS();
+        $('#userid').html(spy.info.userid);
       });
     </script>
   </head>
@@ -18,6 +19,7 @@
         <li><a href="puzzle.html">Головоломка "Пятнашки"</a></li>
         <li><a href="typing.html">Клавиатурный тренажер</a></li>
     </ul>
-    <div style="color: gray;" id="userid"></div>
+    <div style="color: gray;">Ваш уникальный идентификатор [ <a href="" onclick="spy.remove(); location.reload(); return false;">сменить</a> ]:</div>
+    <div id="userid" style="color: gray; font-weight: bold;"></div>
   </body>
 </html>
