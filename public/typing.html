@@ -13,27 +13,30 @@
         var arr = splitLine(text, 80);
         var fails = 0;
         var symbols = 0;
+        var linelength = 0;
         var time = 0;
         var minutes = 0;
         var timer;
 
         function init() {
 
-            window.addEventListener("keypress", function(e) { 
+            window.addEventListener("keypress", function(e) {
+                if (!arr[0]) return false;
                 e = e || window.event;
                 var intext = $('#intext');
-                var inlen = $('#intext').val().length;
+                linelength = $('#intext').val().length+1;
                 var key = String.fromCharCode(e.keyCode || e.charCode);
                 //console.log(arr[0][inlen] + ' ' + key);
-                if (!arr[0] || arr[0][inlen] === key) {
-                    symbols++;
+                if (arr[0][linelength-1] === key) {
                     drawLine();
                 } else {
                     fails++;
                     event.preventDefault();
                     return false;
                 }
-                if (!arr[0] || inlen+1 >= arr[0].length) {
+                if (linelength >= arr[0].length) {
+                    symbols += linelength;
+                    linelength = 0;
                     intext.val('');
                     arr.splice(0,1);
                     drawText();
@@ -66,9 +69,10 @@
             var timeStr = new Date(time*1000).toUTCString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
             var epercent = 0;
             var apercent = Math.round(symbols * 100 / text.length);
-            if (symbols > 0) epercent = Math.round(fails * 100 / symbols);
+            var csyms = symbols + linelength;
+            if (csyms > 0) epercent = Math.round(fails * 100 / csyms);
             var syminmin = Math.round((symbols * 60) / minutes);
-            var xhtml = '<span class="item">Набрано: <b>'+symbols+'</b> симв. ('+apercent+' %)</span>';
+            var xhtml = '<span class="item">Набрано: <b>'+csyms+'</b> симв. ('+apercent+' %)</span>';
             xhtml += '<span class="item">Ошибок: <b>'+fails+'</b> ('+epercent+' %)</span>';
             xhtml += '<span class="item">Время: <b>'+timeStr+'</b> </span>';
             xhtml += '<span class="item">Симв./мин.: <b>'+syminmin+'</b></span>';

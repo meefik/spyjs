@@ -48,9 +48,10 @@
             document.getElementById('box').innerHTML = xhtml;
             document.getElementById('td'+z).style.background = '#FAEBD7';
 
-            setInterval(function(){
+            var timerid = setInterval(function(){
                 time++;
                 document.getElementById('time').innerHTML = new Date(time*1000).toUTCString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+                if (isFinish()) clearInterval(timerid);
             }, 1000);
         }
 
@@ -93,11 +94,32 @@
 
         }
 
+        function isFinish() {
+            for (var i = 1; i < z; i++) {
+                if (document.getElementById('td'+i).innerHTML != i) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null
         }
 
     </script>
+
+    <style type="text/css">
+        td {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            cursor: default;
+        }
+    </style>
 
 </head>
 <body onload="init()">
