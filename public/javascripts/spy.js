@@ -54,11 +54,6 @@ function SpyJS() {
 
     SpyJS.prototype.save = function (event) {
 
-        if(new Date().getTime() < timeout) {
-            return;
-        }
-        timeout = new Date().getTime() + 100;  // 100 ms
-
         var event = event || window.event;
         var target = event.target || event.srcElement;
         var time = new Date().getTime() - initTime;
@@ -75,6 +70,10 @@ function SpyJS() {
                 arr_click.push(data);
                 break;
             case 'mousemove':
+
+                if(new Date().getTime() < timeout) break;
+                timeout = new Date().getTime() + 100;  // 100 ms
+
                 var data = {"pageid": page.pageid, "time": time, "tag": target.id, "x": event.clientX, "y": event.clientY};
                 console.log(data);
                 arr_mousemove.push(data);

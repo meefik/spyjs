@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed3e5178-c1af-46c2-80f7-9a7f63e72f3a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/typing.html" afterPath="$PROJECT_DIR$/public/typing.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/spy.js" afterPath="$PROJECT_DIR$/public/javascripts/spy.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spyjs.iws" />
@@ -38,28 +38,26 @@
       <file leaf-file-name="puzzle.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/puzzle.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2250">
+            <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2250">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="spy.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="spy.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/spy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="26" selection-start="2901" selection-end="2907" vertical-scroll-proportion="0.0" vertical-offset="1370" max-vertical-offset="2010">
+            <state line="72" column="0" selection-start="2001" selection-end="2001" vertical-scroll-proportion="0.4827586" vertical-offset="800" max-vertical-offset="1995">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typing.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="typing.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/typing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="192" column="0" selection-start="7096" selection-end="7096" vertical-scroll-proportion="0.76079136" vertical-offset="2457" max-vertical-offset="3060">
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="49" column="17" selection-start="2780" selection-end="2780" vertical-scroll-proportion="-3.1666667" vertical-offset="659" max-vertical-offset="3060">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,7 +74,7 @@
       <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="41" selection-start="865" selection-end="865" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="450">
+            <state line="22" column="41" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
@@ -103,7 +101,7 @@
       <file leaf-file-name="api.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="32" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="229" max-vertical-offset="810">
+            <state line="29" column="32" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -148,9 +146,9 @@
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
         <option value="$PROJECT_DIR$/routes/api.js" />
         <option value="$PROJECT_DIR$/public/puzzle.html" />
-        <option value="$PROJECT_DIR$/public/javascripts/spy.js" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/typing.html" />
+        <option value="$PROJECT_DIR$/public/javascripts/spy.js" />
       </list>
     </option>
   </component>
@@ -184,7 +182,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -283,6 +280,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,14 +416,17 @@
       <created>1383989593831</created>
       <updated>1383989593831</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Disable selection.">
+      <created>1383990278818</created>
+      <updated>1383990278818</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1019" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -440,6 +441,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294347" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940476" sideWeight="0.6736959" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -456,7 +458,8 @@
     <MESSAGE value="Added reports." />
     <MESSAGE value="Fixed data rows." />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Disable selection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable selection." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -517,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/puzzle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="2250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/report.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="11" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0" vertical-offset="224" max-vertical-offset="780">
@@ -545,26 +541,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/spy.js">
+    <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="26" selection-start="2901" selection-end="2907" vertical-scroll-proportion="0.0" vertical-offset="1370" max-vertical-offset="2010">
+        <state line="22" column="41" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="450">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.ejs">
+    <entry file="file://$PROJECT_DIR$/public/puzzle.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="41" selection-start="865" selection-end="865" vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="450">
+        <state line="18" column="21" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="2250">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/typing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="192" column="0" selection-start="7096" selection-end="7096" vertical-scroll-proportion="0.76079136" vertical-offset="2457" max-vertical-offset="3060">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="49" column="17" selection-start="2780" selection-end="2780" vertical-scroll-proportion="-3.1666667" vertical-offset="659" max-vertical-offset="3060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/spy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="2001" selection-end="2001" vertical-scroll-proportion="0.4827586" vertical-offset="800" max-vertical-offset="1995">
+          <folding />
         </state>
       </provider>
     </entry>
