@@ -25,24 +25,18 @@ exports.add = function(req, res){
             [req.body.page.pageid,req.body.page.userid,req.body.page.uri,req.body.page.width,req.body.page.height,
                 req.body.page.title,req.body.page.useragent]);
     }
-    if (req.body.keydown) {
-        for (var i = 0; i < req.body.keydown.length; i++) {
-            query("INSERT INTO keydown (pageid, time, keycode) VALUES (?,?,?)",
-                [req.body.keydown[i].pageid,req.body.keydown[i].time,req.body.keydown[i].keycode]);
+    if (req.body.keyboard) {
+        for (var i = 0; i < req.body.keyboard.length; i++) {
+            query("INSERT INTO keyboard (pageid, time, keycode, delta) VALUES (?,?,?,?)",
+                [req.body.keyboard[i].pageid,req.body.keyboard[i].time,req.body.keyboard[i].keycode,
+                    req.body.keyboard[i].delta]);
         }
     }
-    if (req.body.click) {
-        for (var i = 0; i < req.body.click.length; i++) {
-            query("INSERT INTO click (pageid, time, tag, x, y) VALUES (?,?,?,?,?)",
-                [req.body.click[i].pageid,req.body.click[i].time,req.body.click[i].tag,
-                    req.body.click[i].x,req.body.click[i].y]);
-        }
-    }
-    if (req.body.mousemove) {
-        for (var i = 0; i < req.body.mousemove.length; i++) {
-            query("INSERT INTO mousemove (pageid, time, tag, x, y) VALUES (?,?,?,?,?)",
-                [req.body.mousemove[i].pageid,req.body.mousemove[i].time,req.body.mousemove[i].tag,
-                    req.body.mousemove[i].x,req.body.mousemove[i].y]);
+    if (req.body.mouse) {
+        for (var i = 0; i < req.body.mouse.length; i++) {
+            query("INSERT INTO mouse (pageid, time, keycode, delta, x, y, tag) VALUES (?,?,?,?,?,?,?)",
+                [req.body.mouse[i].pageid,req.body.mouse[i].time,req.body.mouse[i].keycode,
+                    req.body.mouse[i].delta,req.body.mouse[i].x,req.body.mouse[i].y,req.body.mouse[i].tag]);
         }
     }
 
