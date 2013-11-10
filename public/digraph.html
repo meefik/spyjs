@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Поиск диграфов</title>
+    <script src="javascripts/jquery-1.10.1.min.js"></script>
+    <script>
+        var digraphFind = function() {
+            var str = $('#intext').val();
+            var re = /([a-zа-я]{2})/ig;
+            /*for (var i = 0, len = str.length; i < len-1; i++) {
+                var digraph = str[i]+str[i+1];
+                if (digraph.match(re).length > 0)
+            }*/
+            console.log(str.match(re));
+        }
+
+        function init() {
+            $('#goBtn').click(digraphFind);
+        }
+    </script>
+</head>
+<body onload="init();">
+<form action="">
+    <textarea id="intext" cols="100" rows="30" placeholder="Вставьте сюда текст" autofocus></textarea>
+    <br>
+    <input id="goBtn" type="button" value="Посчитать">
+</form>
+</body>
+</html>
