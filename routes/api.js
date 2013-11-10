@@ -6,12 +6,14 @@ exports.add = function(req, res){
     function query(sql,params) {
         pool.getConnection(function(err, connection) {
             connection.query(sql, params, function (err, results) {
+                /*
                     if (!err) {
                         //res.send(200, "OK");
                     } else {
                         //res.send(406, "Not Acceptable");
                         console.log(err);
                     }
+                */
                     connection.release();
                 });
         });

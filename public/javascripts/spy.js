@@ -82,7 +82,7 @@ function SpyJS() {
                 keycodes['k'+event.keyCode] = (new Date()).getTime();
                 break;
             case 'keyup':
-                var delta = (new Date()).getTime() - keycodes['k'+event.keyCode];
+                var delta = (new Date()).getTime() - keycodes['k'+event.keyCode] || 0;
                 var data = {"pageid": page.pageid, "time": time, "keycode": event.keyCode, "delta": delta};
                 keyboard.push(data);
                 if (debug) console.log(data);
@@ -91,7 +91,7 @@ function SpyJS() {
                 keycodes['m'+event.button] = (new Date()).getTime();
                 break;
             case 'mouseup':
-                var delta = (new Date()).getTime() - keycodes['m'+event.button];
+                var delta = (new Date()).getTime() - keycodes['m'+event.button] || 0;
                 var data = {"pageid": page.pageid, "time": time, "keycode": event.button, "delta": delta,
                     "x": event.clientX, "y": event.clientY, "tag": target.id};
                 mouse.push(data);
