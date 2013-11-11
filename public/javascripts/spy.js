@@ -24,7 +24,7 @@ function SpyJS() {
     var keyboard = [];
     var mouse = [];
     var keycodes = [];
-    var lastXY = null;
+    var lastMouseData = {"x": null, "y": null, "time": null};
     var timer = null;
 
     var userId = getCookie("userId");
@@ -103,10 +103,11 @@ function SpyJS() {
                 timeout = new Date().getTime() + limit;  // ms
 
                 var delta = 0;
-                if (lastXY) {
-                    delta = Math.round(Math.sqrt(Math.pow(event.clientX - lastXY.x,2) + Math.pow(event.clientY - lastXY.y,2)));
+                if (lastMouseData) {
+                    delta = Math.round( Math.sqrt(Math.pow(event.clientX - lastMouseData.x,2) +
+                        Math.pow(event.clientY - lastMouseData.y,2)) * 1000 / (time - lastMouseData.time) );
                 }
-                lastXY = {"x": event.clientX, "y": event.clientY};
+                lastMouseData = {"x": event.clientX, "y": event.clientY, "time": time};
                 var data = {"pageid": page.pageid, "time": time, "keycode": -1, "delta": delta,
                     "x": event.clientX, "y": event.clientY, "tag": target.id};
                 mouse.push(data);
