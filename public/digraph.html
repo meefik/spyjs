@@ -37,7 +37,7 @@
                 xhtml+='"'+sorted_arr[i].digraph+'";"'+sorted_arr[i].count+'"\n';
             }
             $('#output').val(xhtml);
-
+            $('#length').html('Всего: '+sorted_arr.length);
         }
 
         function init() {
@@ -49,6 +49,7 @@
 <form action="">
     <textarea id="intext" cols="100" rows="15" placeholder="Вставьте сюда текст" autofocus></textarea>
     <br>
+    <div id="length" style="padding-left: 5px">Всего: 0</div>
     <textarea id="output" cols="100" rows="15" placeholder="Выходные данные"></textarea>
     <br>
     <input id="goBtn" type="button" value="Посчитать">
