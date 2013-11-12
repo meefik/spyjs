@@ -104,6 +104,7 @@ function SpyJS() {
 
                 var delta = 0;
                 if (lastMouseData) {
+                    // speed px/sec
                     delta = Math.round( Math.sqrt(Math.pow(event.clientX - lastMouseData.x,2) +
                         Math.pow(event.clientY - lastMouseData.y,2)) * 1000 / (time - lastMouseData.time) );
                 }

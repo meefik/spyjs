@@ -6,13 +6,38 @@
     <script src="javascripts/jquery-1.10.1.min.js"></script>
     <script>
         var digraphFind = function() {
-            var str = $('#intext').val();
+            var str = $('#intext').val().toLowerCase();
             var re = /([a-zа-я]{2})/ig;
-            /*for (var i = 0, len = str.length; i < len-1; i++) {
+            //console.log(str.match(re));
+            var arr = [];
+            for (var i = 0, len = str.length; i < len-1; i++) {
                 var digraph = str[i]+str[i+1];
-                if (digraph.match(re).length > 0)
-            }*/
-            console.log(str.match(re));
+                if (digraph.match(re)) {
+                    arr.push(digraph);
+                }
+            }
+            var counts = [];
+            for (var i = 0, len = arr.length; i < len; i++) {
+                var num = arr[i].charCodeAt(0)+'-'+arr[i].charCodeAt(1);
+                counts[num] = counts[num] ? counts[num]+1 : 1;
+            }
+            var obj_arr = [];
+            for (var k in counts){
+                var codes = k.split('-');
+                var digraph = String.fromCharCode(codes[0])+String.fromCharCode(codes[1]);
+                var cnt = counts[k];
+                obj_arr.push({"digraph": digraph, "count": cnt});
+            }
+            function compare(a,b) {
+                return b.count - a.count;
+            }
+            var sorted_arr = obj_arr.sort(compare);
+            var xhtml='"digraph";"count"\n';
+            for (var i = 0, len = sorted_arr.length; i < len; i++) {
+                xhtml+='"'+sorted_arr[i].digraph+'";"'+sorted_arr[i].count+'"\n';
+            }
+            $('#output').val(xhtml);
+
         }
 
         function init() {
@@ -22,7 +47,9 @@
 </head>
 <body onload="init();">
 <form action="">
-    <textarea id="intext" cols="100" rows="30" placeholder="Вставьте сюда текст" autofocus></textarea>
+    <textarea id="intext" cols="100" rows="15" placeholder="Вставьте сюда текст" autofocus></textarea>
+    <br>
+    <textarea id="output" cols="100" rows="15" placeholder="Выходные данные"></textarea>
     <br>
     <input id="goBtn" type="button" value="Посчитать">
 </form>
