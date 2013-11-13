@@ -52,7 +52,7 @@ exports.list = function(req, res) {
                 var sql = "SELECT * FROM pages";
                 var params = [];
                 if (req.query.userid) {
-                    var sql = "SELECT * FROM pages WHERE userid=?";
+                    var sql = "SELECT * FROM pages WHERE userid=? ORDER BY timestamp";
                     var params = [req.query.userid];
                 }
                 connection.query(sql, params, function (err, results) {
@@ -76,7 +76,7 @@ exports.list = function(req, res) {
                 return res.send(400, "Bad Request");
             }
             pool.getConnection(function(err, connection) {
-                var sql = "SELECT * FROM keyboard WHERE pageid=?";
+                var sql = "SELECT * FROM keyboard WHERE pageid=? ORDER BY time";
                 var params = [req.query.pageid];
                 connection.query(sql, params, function (err, results) {
                     if (!err) {
@@ -99,7 +99,7 @@ exports.list = function(req, res) {
                 return res.send(400, "Bad Request");
             }
             pool.getConnection(function(err, connection) {
-                var sql = "SELECT * FROM mouse WHERE pageid=?";
+                var sql = "SELECT * FROM mouse WHERE pageid=? ORDER BY time";
                 var params = [req.query.pageid];
                 connection.query(sql, params, function (err, results) {
                     if (!err) {
