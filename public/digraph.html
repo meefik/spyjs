@@ -26,15 +26,16 @@
                 var codes = k.split('-');
                 var digraph = String.fromCharCode(codes[0])+String.fromCharCode(codes[1]);
                 var cnt = counts[k];
-                obj_arr.push({"digraph": digraph, "count": cnt});
+                obj_arr.push({"digraph": digraph, "count": cnt, "code1": codes[0], "code2": codes[1]});
             }
             function compare(a,b) {
                 return b.count - a.count;
             }
             var sorted_arr = obj_arr.sort(compare);
-            var xhtml='"digraph";"count"\n';
+            var xhtml='"digraph";"count";"code1";"code2"\n';
             for (var i = 0, len = sorted_arr.length; i < len; i++) {
-                xhtml+='"'+sorted_arr[i].digraph+'";"'+sorted_arr[i].count+'"\n';
+                xhtml+='"'+sorted_arr[i].digraph+'";"'+sorted_arr[i].count+'";"'+
+                        sorted_arr[i].code1+'";"'+sorted_arr[i].code2+'"\n';
             }
             $('#output').val(xhtml);
             $('#length').html('Всего: '+sorted_arr.length);
