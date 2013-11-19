@@ -5,9 +5,78 @@
     <title>Поиск диграфов</title>
     <script src="javascripts/jquery-1.10.1.min.js"></script>
     <script>
+        var xreplace = [];
+
+        xreplace['113'] = '81'; // qй
+        xreplace['119'] = '87'; // wц
+        xreplace['101'] = '69'; // eу
+        xreplace['114'] = '82'; // rк
+        xreplace['116'] = '84'; // tе
+        xreplace['121'] = '89'; // yн
+        xreplace['117'] = '85'; // uг
+        xreplace['105'] = '73'; // iш
+        xreplace['111'] = '79'; // oщ
+        xreplace['112'] = '80'; // pз
+        xreplace['91'] = '219'; // [х
+        xreplace['93'] = '221'; // ]ъ
+        xreplace['97'] = '65'; // aф
+        xreplace['115'] = '83'; // sы
+        xreplace['100'] = '68'; // dв
+        xreplace['102'] = '70'; // fа
+        xreplace['103'] = '71'; // gп
+        xreplace['104'] = '72'; // hр
+        xreplace['106'] = '74'; // jо
+        xreplace['107'] = '75'; // kл
+        xreplace['108'] = '76'; // lд
+        xreplace['59'] = '186'; // ;ж
+        xreplace['39'] = '222'; // 'э
+        xreplace['122'] = '90'; // zя
+        xreplace['120'] = '88'; // xч
+        xreplace['99'] = '67'; // cс
+        xreplace['118'] = '86'; // vм
+        xreplace['98'] = '66'; // bи
+        xreplace['110'] = '78'; // nт
+        xreplace['109'] = '77'; // mь
+        xreplace['44'] = '188'; // ,б
+        xreplace['46'] = '190'; // .ю
+
+        xreplace['1081'] = '81'; // qй
+        xreplace['1094'] = '87'; // wц
+        xreplace['1091'] = '69'; // eу
+        xreplace['1082'] = '82'; // rк
+        xreplace['1077'] = '84'; // tе
+        xreplace['1085'] = '89'; // yн
+        xreplace['1075'] = '85'; // uг
+        xreplace['1096'] = '73'; // iш
+        xreplace['1097'] = '79'; // oщ
+        xreplace['1079'] = '80'; // pз
+        xreplace['1093'] = '219'; // [х
+        xreplace['1098'] = '221'; // ]ъ
+        xreplace['1092'] = '65'; // aф
+        xreplace['1099'] = '83'; // sы
+        xreplace['1074'] = '68'; // dв
+        xreplace['1072'] = '70'; // fа
+        xreplace['1087'] = '71'; // gп
+        xreplace['1088'] = '72'; // hр
+        xreplace['1086'] = '74'; // jо
+        xreplace['1083'] = '75'; // kл
+        xreplace['1076'] = '76'; // lд
+        xreplace['1078'] = '186'; // ;ж
+        xreplace['1101'] = '222'; // 'э
+        xreplace['1103'] = '90'; // zя
+        xreplace['1095'] = '88'; // xч
+        xreplace['1089'] = '67'; // cс
+        xreplace['1084'] = '86'; // vм
+        xreplace['1080'] = '66'; // bи
+        xreplace['1090'] = '78'; // nт
+        xreplace['1100'] = '77'; // mь
+        xreplace['1073'] = '188'; // ,б
+        xreplace['1102'] = '190'; // .ю
+
         var digraphFind = function() {
             var str = $('#intext').val().toLowerCase();
             var re = /([a-zа-я]{2})/ig;
+            //var re = /([a-zа-я\[\];',\.]{2})/ig;
             //console.log(str.match(re));
             var arr = [];
             for (var i = 0, len = str.length; i < len-1; i++) {
@@ -34,6 +103,10 @@
             var sorted_arr = obj_arr.sort(compare);
             var xhtml='"digraph";"count";"code1";"code2"\n';
             for (var i = 0, len = sorted_arr.length; i < len; i++) {
+                var code1 = xreplace[sorted_arr[i].code1];
+                if (code1) sorted_arr[i].code1 = code1;
+                var code2 = xreplace[sorted_arr[i].code2];
+                if (code2) sorted_arr[i].code2 = code2;
                 xhtml+='"'+sorted_arr[i].digraph+'";"'+sorted_arr[i].count+'";"'+
                         sorted_arr[i].code1+'";"'+sorted_arr[i].code2+'"\n';
             }

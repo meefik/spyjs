@@ -101,6 +101,10 @@ exports.list = function(req, res) {
             pool.getConnection(function(err, connection) {
                 var sql = "SELECT * FROM mouse WHERE pageid=? ORDER BY time";
                 var params = [req.query.pageid];
+                if (req.query.keycode) {
+                    var sql = "SELECT * FROM mouse WHERE pageid=? AND keycode=? ORDER BY time";
+                    params.push(req.query.keycode);
+                }
                 connection.query(sql, params, function (err, results) {
                     if (!err) {
                         var response = '"pageid";"time";"keycode";"delta";"x";"y";"tag"\n';
