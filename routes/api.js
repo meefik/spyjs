@@ -49,7 +49,7 @@ exports.list = function(req, res) {
     switch (req.query.table) {
         case 'pages':
             pool.getConnection(function(err, connection) {
-                var sql = "SELECT * FROM pages";
+                var sql = "SELECT * FROM pages ORDER BY timestamp";
                 var params = [];
                 if (req.query.userid) {
                     var sql = "SELECT * FROM pages WHERE userid=? ORDER BY timestamp";
@@ -78,12 +78,17 @@ exports.list = function(req, res) {
             pool.getConnection(function(err, connection) {
                 var sql = "SELECT * FROM keyboard WHERE pageid=? ORDER BY time";
                 var params = [req.query.pageid];
+                var lasttime = 0;
                 connection.query(sql, params, function (err, results) {
                     if (!err) {
-                        var response = '"pageid";"time";"keycode";"delta"\n';
+                        //var response = '"pageid";"time";"keycode";"delta"\n';
+                        var response = '';
                         for (var i = 0; i < results.length; i++) {
-                            response += '"'+results[i].pageid+'";"'+results[i].time+'";"'+results[i].keycode+'";"'+
-                                results[i].delta+'"\n';
+                            //response += '"'+results[i].pageid+'";"'+results[i].time+'";"'+results[i].keycode+'";"'+
+                            //    results[i].delta+'"\n';
+                            var interval = results[i].time - lasttime;
+                            response += '"'+results[i].keycode+'";"'+results[i].delta+'";"'+interval+'"\n';
+                            lasttime = results[i].time;
                         }
                         res.send(200, response);
                     } else {
@@ -105,12 +110,17 @@ exports.list = function(req, res) {
                     var sql = "SELECT * FROM mouse WHERE pageid=? AND keycode=? ORDER BY time";
                     params.push(req.query.keycode);
                 }
+                var lasttime = 0;
                 connection.query(sql, params, function (err, results) {
                     if (!err) {
-                        var response = '"pageid";"time";"keycode";"delta";"x";"y";"tag"\n';
+                        //var response = '"pageid";"time";"keycode";"delta";"x";"y";"tag"\n';
+                        var response = '';
                         for (var i = 0; i < results.length; i++) {
-                            response += '"'+results[i].pageid+'";"'+results[i].time+'";"'+results[i].keycode+'";"'+
-                                results[i].delta+'";"'+results[i].x+'";"'+results[i].y+'";"'+results[i].tag+'"\n';
+                            //response += '"'+results[i].pageid+'";"'+results[i].time+'";"'+results[i].keycode+'";"'+
+                            //    results[i].delta+'";"'+results[i].x+'";"'+results[i].y+'";"'+results[i].tag+'"\n';
+                            var interval = results[i].time - lasttime;
+                            response += '"'+results[i].delta+'";"'+interval+'"\n';
+                            lasttime = results[i].time;
                         }
                         res.send(200, response);
                     } else {
