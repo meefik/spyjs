@@ -87,7 +87,7 @@ exports.list = function(req, res) {
                             //response += '"'+results[i].pageid+'";"'+results[i].time+'";"'+results[i].keycode+'";"'+
                             //    results[i].delta+'"\n';
                             var interval = results[i].time - lasttime;
-                            response += '"'+results[i].keycode+'";"'+results[i].delta+'";"'+interval+'"\n';
+                            response += results[i].keycode+';'+results[i].delta+';'+interval+'\n';
                             lasttime = results[i].time;
                         }
                         res.send(200, response);
@@ -119,7 +119,7 @@ exports.list = function(req, res) {
                             //response += '"'+results[i].pageid+'";"'+results[i].time+'";"'+results[i].keycode+'";"'+
                             //    results[i].delta+'";"'+results[i].x+'";"'+results[i].y+'";"'+results[i].tag+'"\n';
                             var interval = results[i].time - lasttime;
-                            response += '"'+results[i].delta+'";"'+interval+'"\n';
+                            response += results[i].delta+';'+interval+'\n';
                             lasttime = results[i].time;
                         }
                         res.send(200, response);
