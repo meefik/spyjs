@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <title>Клавиатурный почерк (эксперимент)</title>
+    <script src="javascripts/jquery-1.10.1.min.js"></script>
+    <script src="javascripts/keyboard.js"></script>
+</head>
+<body onload="init();">
+    <div style="padding-bottom: 1em">
+        Порядок проведения эксперимента:
+        <ol>
+            <li>поместите в первое поле исходный текст;</li>
+            <li>нажмите кнопку "Начать";</li>
+            <li>во втором текстовом поле наберите указанный выше текст;</li>
+            <li>нажмите кнопку "Закончить";</li>
+            <li>повторите этапы 2-4 для каждого испытуемого;</li>
+            <li>нажмите кнопку "Идентификация" для оценивания схожести стилей набора текста.</li>
+        </ol>
+        Примечание: в рамках одного эксперимента исходный текст должен оставаться неизменным.
+    </div>
+    <div>
+        <textarea id="origin-text" cols="100" rows="10" placeholder="Вставьте сюда текст">Стиль набора этого текста будет обработан и оценен специальным алгоритмом идентификации личности. Каждый человек имеет свой уникальный клавиатурный почерк и при определенных условиях по такому почерку можно однозначно идентифицировать человека. Чем длиннее будет набран текст, тем точнее будет работать алгоритм.</textarea>
+    </div>
+    <div>
+        <textarea id="typing-text" cols="100" rows="10" placeholder="Наберите указанный выше текст" autofocus></textarea>
+    </div>
+    <div style="padding-bottom: 1em">
+        <button id="start-btn" style="width:120px">Начать</button>
+        <button id="stop-btn" style="width:120px">Закончить</button>
+        <button id="ident-btn" style="width:120px">Идентификация</button>
+    </div>
+    <div id="output" style="font-family: monospace; white-space: pre">Нет данных...</div>
+</body>
+</html>
